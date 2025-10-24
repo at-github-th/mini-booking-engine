@@ -1,0 +1,18 @@
+{
+  version: 3.8,
+  services: {
+    api: {
+      build: .,
+      image: mini-booking-engine-api,
+      container_name: mini-booking-engine-api,
+      working_dir: /app/api,
+      volumes: [
+        ./api:/app/api
+      ],
+      command: npm start,
+      ports: [
+        4104:4104
+      ]
+    }
+  }
+}
