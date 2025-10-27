@@ -1,13 +1,17 @@
 {
   "name": "mini-booking-engine-api",
   "private": true,
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
-    "start": "node index.js"
+    "dev": "ts-node src/index.ts"
   },
   "dependencies": {
     "express": "^4.19.2",
     "cors": "^2.8.5",
     "body-parser": "^1.20.2"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.0"
   }
 }
