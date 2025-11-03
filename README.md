@@ -1,16 +1,18 @@
-# Mini Booking/Checkout Engine — Native Backend (TYPESCRIPT)
+# Mini Booking Engine
 
-This repo provides a **language-native backend** on port **5104**, with minimal **web** and **mobile** clients and a tiny **SDK**.
+**Stack:** TypeScript (Express)  
+**API:** http://127.0.0.1:5104  
+**Web:** http://localhost:5504
 
-## Run
-See `api/README.md` for language-specific steps, then:
-- Web: open `web/index.html` via a static server
-- Mobile: `cd mobile && npm install && npm run start` (Android emulator uses `10.0.2.2:5104`)
+## Run (local)
 
-## Endpoints
-Project-specific routes are implemented in the backend (see `api/`). Try typical paths like:
-- `/api/kpis`, `/api/opps`, `/api/notes`
-- `/api/devices`, `/api/heartbeats`
-- `/api/resources`, `/api/availability`, `/api/book`
-- `/api/payments/create`, `/api/webhooks`
-- `/api/ingest`, `/api/dash/summary`
+### API
+cd mini-booking-engine-native/api && npm i && npm run dev
+
+### Web (static tester)
+cd mini-booking-engine-native/web && python3 -m http.server 5504
+
+## Test
+- **Ping:** curl -s http://127.0.0.1:5104 | jq .
+- **Ping:** GET /\n- **Bookings:** GET /api/bookings
+
