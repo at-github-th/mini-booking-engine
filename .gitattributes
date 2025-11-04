@@ -1,15 +1,23 @@
-# De-noise web assets
-web/* linguist-vendored
+# Ignore noisy assets so backend code dominates
+web/** linguist-vendored
+mobile/** linguist-vendored
+sdk/** linguist-vendored
+node_modules/** linguist-vendored
+dist/** linguist-vendored
+build/** linguist-vendored
+target/** linguist-vendored
+Makefile linguist-vendored
 *.map linguist-vendored
 *.min.* linguist-vendored
-# Strong language hints
-*.rs linguist-language=Rust
-*.go linguist-language=Go
-*.ts linguist-language=TypeScript
-*.tsx linguist-language=TypeScript
-*.js linguist-language=JavaScript
+
+# Force correct language per file type
+*.rs   linguist-language=Rust
+*.go   linguist-language=Go
+*.ts   linguist-language=TypeScript
+*.tsx  linguist-language=TypeScript
+*.js   linguist-language=JavaScript
 *.java linguist-language=Java
-*.py linguist-language=Python
+*.py   linguist-language=Python
 *.html linguist-language=HTML
-*.ex *.exs linguist-language=Elixir
-Makefile linguist-vendored
+*.ex   linguist-language=Elixir
+*.exs  linguist-language=Elixir
