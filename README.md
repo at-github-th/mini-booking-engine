@@ -1,18 +1,20 @@
 # Mini Booking Engine
 
-**Stack:** TypeScript (Express)  
-**API:** http://127.0.0.1:5104  
-**Web:** http://localhost:5504
+Language: TypeScript (Express)
 
-## Run (local)
+## How to run
 
-### API
+API
+```bash
 cd mini-booking-engine-native/api && npm i && npm run dev
+```
 
-### Web (static tester)
+Web
+```bash
 cd mini-booking-engine-native/web && python3 -m http.server 5504
+```
 
-## Test
-- **Ping:** curl -s http://127.0.0.1:5104 | jq .
-- **Ping:** GET /\n- **Bookings:** GET /api/bookings
+Open http://localhost:5504
 
+## Endpoints
+- Ping: GET /\n- Bookings: GET /api/bookings
