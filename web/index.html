@@ -1,11 +1,36 @@
-<!doctype html><meta charset="utf-8"><title>mini-booking-engine-native demo</title>
-<style>body{font-family:system-ui,Arial;margin:24px;max-width:900px}.row{display:flex;gap:8px;margin:8px 0}button{padding:8px 12px}pre{background:#111;color:#0f0;padding:12px;min-height:120px;white-space:pre-wrap}</style>
-<h1>mini-booking-engine-native web tester</h1>
-<div class="row"><label>API base</label><input id="base" size="40" value="http://127.0.0.1:5104"><button onclick="ping()">Ping</button><button onclick="ex()">Run Example</button></div>
-<pre id="out">Click a button…</pre>
+<!doctype html><html><head><meta charset="utf-8"/>
+<title>Mini Booking Engine</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<style>
+  body{font-family:ui-sans-serif,system-ui;margin:24px;background:#0b1220;color:#dbeafe}
+  .wrap{max-width:880px;margin:auto}
+  .row{display:flex;gap:10px;flex-wrap:wrap}
+  input,select{padding:8px;border-radius:6px;border:1px solid #1e293b;background:#0f172a;color:#e2e8f0}
+  button{background:#f59e0b;border:0;border-radius:8px;padding:8px 12px;color:#111827;cursor:pointer}
+  .card{background:#0f172a;border:1px solid #334155;border-radius:12px;padding:14px;margin-top:12px}
+  pre{background:#0a1222;border:1px solid #1f2a44;border-radius:8px;padding:10px;overflow:auto}
+</style></head><body><div class="wrap">
+<h1>Mini Booking Engine</h1>
+<div>TypeScript • Express • :5104</div>
+<div class="card">
+  <div class="row">
+    <input id="date" type="date"/>
+    <select id="pax"><option>2</option><option>4</option><option>6</option><option>8</option></select>
+    <button id="quote">Get Quote</button>
+    <button id="list">List Products</button>
+  </div>
+</div>
+<h3>Output</h3>
+<pre id="out">Ready.</pre>
+</div>
 <script>
-const out=document.getElementById('out');
-function base(){return document.getElementById('base').value}
-async function ping(){try{const r=await fetch(base()); out.textContent=JSON.stringify(await r.json(),null,2);}catch(e){out.textContent=String(e)}}
-async function ex(){out.textContent="Try /api endpoints for this app"}
-</script>
+const BASE="http://127.0.0.1:5104"; const out=document.getElementById('out');
+document.getElementById('quote').onclick=async()=>{
+  const q=await fetch(BASE+"/api/quote?date="+(date.value||"")+ "&pax="+(pax.value||"")).then(r=>r.json()).catch(String);
+  out.textContent=JSON.stringify(q,null,2);
+};
+document.getElementById('list').onclick=async()=>{
+  const p=await fetch(BASE+"/api/products").then(r=>r.json()).catch(String);
+  out.textContent=JSON.stringify(p,null,2);
+};
+</script></body></html>
